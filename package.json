@@ -1,0 +1,11 @@
+{
+    "name": "jools"
+  , "version": "0.0.1"
+  , "description": "Business Rules Engine for JavaScript"
+  , "keywords": ["bre", "rules", "engine"]
+  , "author": "Tom de Grunt <tom@degrunt.nl>"
+  , "contributors" : []
+  , "dependencies": {}
+  , "main": "./lib/jools"
+  , "engines": { "node": ">= 0.4.x" }
+}
