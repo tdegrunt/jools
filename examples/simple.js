@@ -3,17 +3,16 @@ var Jools = require('../lib/jools');
 var rules = [
   {
     "name": "Check heater and turn off if needed",
-    "conditions": [
+    "condition": 
       function(type, temperature) {
         return type == "living" && temperature > 20 || 
           type == "passing" && temperature > 16;
       }
-    ],
-    "actions": [
+    ,
+    "consequence": 
       function(name) {
         console.log('turn off heater in room '+name)
       }
-    ]
   }
 ];
 
