@@ -3,7 +3,7 @@ Jools
 
 ## What is Jools?
 
-Jools is a forward chaining Business Rules Engine (BRE), currently implementing as an inference engine.
+Jools is a forward chaining Business Rules Engine (BRE), currently implemented as an inference engine.
 
 ## JSON Rules 
 
