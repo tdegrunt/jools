@@ -23,7 +23,7 @@ Jools allows for very expressive rules, take for example the following:
         }
     }
 
-Provided the following information, the rule would output "Hello David" to the console:
+Provided the following fact, the rule would output "Hello David" to the console:
 
     {
       "name": "David",

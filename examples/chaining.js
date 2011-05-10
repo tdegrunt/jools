@@ -40,15 +40,6 @@ var hall = {
   "type": "passing"
 };
 
-/*
-console.time('complicated');
-var complicated = [];
-for(var i = 0; i < 10000; i++ ) {
-  complicated.push(rules[0]);
-}
-*/
-
-//console.time('complicated');
 var j = new Jools(rules);
 j.execute(lounge);
 j.execute(hall);
