@@ -2,33 +2,25 @@ var Jools = require('../lib/jools');
 
 var rules = [
   {
-    "name": "Check heater and turn off if needed",
+    "name": "Lights on after 8pm",
     "condition": 
-      function(type, temperature) {
-        return type == "living" && temperature > 20 || 
-          type == "passing" && temperature > 16;
+      function(hour) {
+        return hour >= 8;
       }
     ,
     "consequence": 
-      function(name) {
-        console.log('turn off heater in room '+name)
+      function() {
+        this.state = "on";
       }
   }
 ];
 
-var lounge =  {
-  "name": "lounge",
-  "temperature": 21,
-  "type": "living"
-};
-
-var hall = {
-  "name": "hall",
-  "temperature": 16,
-  "type": "passing"
+var fact =  {
+  "hour": 8,
+  "minute": 21
 };
 
 var j = new Jools(rules);
-j.execute(lounge);
-j.execute(hall);
+var result = j.execute(fact);
+console.log("Lights should be switched "+result.state);
 

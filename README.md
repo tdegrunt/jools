@@ -3,7 +3,7 @@ Jools
 
 ## What is Jools?
 
-Jools is a forward chaining Business Rules Engine (BRE), currently implementing using a naive linear algorithm.
+Jools is a forward chaining Business Rules Engine (BRE), currently implementing as an inference engine.
 
 ## JSON Rules 
 
@@ -11,10 +11,10 @@ Jools uses JSON rules. Rules consist of a descriptive name, one or more conditio
 Jools allows for very expressive rules, take for example the following:
 
     {
-      "name": "hello rule",
+      "name": "say hello to Dave",
       "condition": 
         function(name) {
-          return name == "David";
+          return name == "Dave";
         }
       ,
       "consequence": 
@@ -23,11 +23,11 @@ Jools allows for very expressive rules, take for example the following:
         }
     }
 
-Provided the following fact, the rule would output "Hello David" to the console:
+Provided the following fact, the rule would output "Hello Dave" to the console:
 
     {
-      "name": "David",
-      "email": "email@user.com"
+      "name": "Dave",
+      "email": "dave@ibm.com"
     }
 
 

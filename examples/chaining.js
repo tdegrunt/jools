@@ -2,44 +2,73 @@ var Jools = require('../lib/jools');
 
 var rules = [
   {
-    "name": "Check temperature",
+    "name": "frog is green",
     "condition": 
-      function(type, temperature) {
-        return type == "living" && temperature > 20 || 
-          type == "passing" && temperature > 15;
+      function(animal) {
+        return animal == "frog";
       }
     ,
     "consequence": 
       function(name) {
-        this.tooWarm = true;
+        this.color = "green";
       }
   },
   {
-    "name": "Turn heater off",
+    "name": "canary is yellow",
     "condition": 
-      function(tooWarm) {
-        return tooWarm;
+      function(animal) {
+        return animal == "canary";
       }
     ,
     "consequence": 
       function(name) {
-        console.log("Turn heater off in room: "+name);
+        this.color = "yellow";
+      }
+  },
+  {
+    "name": "croaks and eats flies",
+    "condition": 
+      function(eats) {
+        return eats && eats.indexOf('croaks') >= 0 &&
+          eats.indexOf('flies') >= 0;
+      }
+    ,
+    "consequence": 
+      function() {
+        this.animal = "frog";
+      }
+  },
+  {
+    "name": "chirps and sings",
+    "condition": 
+      function(does) {
+        return does && does.indexOf('chirps') >= 0 &&
+          does.indexOf('sings') >= 0;
+      }
+    ,
+    "consequence": 
+      function() {
+        this.animal = "canary";
       }
   }
 ];
 
-var lounge =  {
-  "name": "lounge",
-  "temperature": 21,
-  "type": "living"
+var fritz =  {
+  "name": "Fritz",
+  "eats": ["croaks", "flies"],
+};
+var tweety =  {
+  "name": "Tweety",
+  "does": ["chirps", "sings"],
 };
 
-var hall = {
-  "name": "hall",
-  "temperature": 16,
-  "type": "passing"
-};
 
 var j = new Jools(rules);
-j.execute(lounge);
-j.execute(hall);
+var result = j.execute(fritz);
+console.log(result.name + " is " + result.color);
+
+console.log("------");
+
+var result = j.execute(tweety);
+console.log(result.name + " is " + result.color);
+
